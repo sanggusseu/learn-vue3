@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vite App</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- v-cloak은 연결된 컴포넌트 인스턴스가 컴파일을 완료 할 때 까지 엘리먼트에 남아있다.
+     [v-cloak] { display: none }과 같은 CSS 규칙들이 합쳐진, 이 디렉티브는 컴포넌트
+     인스턴스가 준비될 때 까지 컴파일 되지 않은 mustache {{}} 바인딩을 숨기는데 사용할 수 있다. -->
+    <p v-cloak>{{ message }}</p>
+  </div>
+  <script>
+    const App = {
+      data() {
+        return {
+          message: '안녕하세요'
+        }
+      }
+    }
+
+    setTimeout(()=> {
+      Vue.createApp(App).mount('#app')
+    },3000)
+  </script>
+</body>
+</html>
